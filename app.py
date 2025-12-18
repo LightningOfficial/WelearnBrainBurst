@@ -390,6 +390,8 @@ def get_courses():
             url, headers={
                 "Host": "welearn.sflep.com",
                 "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
+                "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+                "Accept-Encoding": "gzip, deflate, br, zstd",
                 "Referer": "https://welearn.sflep.com/student/index.aspx"
                 }
         )
@@ -415,6 +417,8 @@ def get_lessons():
             headers={
                 "Host": "welearn.sflep.com",
                 "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
+                "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+                "Accept-Encoding": "gzip, deflate, br, zstd",
                 "Referer": "https://welearn.sflep.com/student/course_info.aspx"
                 },
         )
@@ -432,6 +436,8 @@ def get_lessons():
             headers={
                 "Host": "welearn.sflep.com",
                 "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
+                "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+                "Accept-Encoding": "gzip, deflate, br, zstd",
                 "Referer": "https://welearn.sflep.com/student/course_info.aspx"
                 },
         )
@@ -470,6 +476,8 @@ def get_sections():
             headers={
                 "Host": "welearn.sflep.com",
                 "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
+                "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+                "Accept-Encoding": "gzip, deflate, br, zstd",
                 "Referer": f"https://welearn.sflep.com/student/course_info.aspx?cid={_global.cid}"
             },
         )
@@ -602,6 +610,8 @@ class BrainBurstThread(threading.Thread):
             infoHeaders = {
                 "Host": "welearn.sflep.com",
                 "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
+                "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+                "Accept-Encoding": "gzip, deflate, br, zstd",
                 "Referer": f"https://welearn.sflep.com/student/course_info.aspx?cid={_global.cid}",
             }
             # 重新计算总数
@@ -656,6 +666,8 @@ class BrainBurstThread(threading.Thread):
                             headers={
                                 "Host": "welearn.sflep.com",
                                 "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
+                                "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+                                "Accept-Encoding": "gzip, deflate, br, zstd",
                                 "Referer": f"https://welearn.sflep.com/Student/StudyCourse.aspx?cid={_global.cid}&classid={_global.classid}&sco={id}"
                             },
                         )
@@ -672,6 +684,8 @@ class BrainBurstThread(threading.Thread):
                             headers={
                                 "Host": "welearn.sflep.com",
                                 "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
+                                "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+                                "Accept-Encoding": "gzip, deflate, br, zstd",
                                 "Referer": f"https://welearn.sflep.com/Student/StudyCourse.aspx?cid={_global.cid}&classid={_global.classid}&sco={id}"
                             },
                         )
@@ -710,6 +724,8 @@ class BrainBurstThread(threading.Thread):
                                 headers={
                                     "Host": "welearn.sflep.com",
                                     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
+                                    "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+                                    "Accept-Encoding": "gzip, deflate, br, zstd",
                                     "Referer": f"https://welearn.sflep.com/Student/StudyCourse.aspx?cid={_global.cid}&classid={_global.classid}&sco={id}"
                                 },
                             )
@@ -792,6 +808,8 @@ class AwayFromKeyboardThread(threading.Thread):
                 headers={
                     "Host": "welearn.sflep.com",
                     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
+                    "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+                    "Accept-Encoding": "gzip, deflate, br, zstd",
                     "Referer": "https://welearn.sflep.com/student/StudyCourse.aspx"
                 },
             )
@@ -809,6 +827,8 @@ class AwayFromKeyboardThread(threading.Thread):
                     headers={
                         "Host": "welearn.sflep.com",
                         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
+                        "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+                        "Accept-Encoding": "gzip, deflate, br, zstd",
                         "Referer": "https://welearn.sflep.com/student/StudyCourse.aspx"
                     },
                 )
@@ -842,6 +862,8 @@ class AwayFromKeyboardThread(threading.Thread):
                 headers={
                     "Host": "welearn.sflep.com",
                     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
+                    "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+                    "Accept-Encoding": "gzip, deflate, br, zstd",
                     "Referer": "https://welearn.sflep.com/student/StudyCourse.aspx"
                 },
             )
@@ -863,6 +885,8 @@ class AwayFromKeyboardThread(threading.Thread):
                         headers={
                             "Host": "welearn.sflep.com",
                             "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
+                            "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+                            "Accept-Encoding": "gzip, deflate, br, zstd",
                             "Referer": "https://welearn.sflep.com/student/StudyCourse.aspx"
                         },
                     )
@@ -884,6 +908,8 @@ class AwayFromKeyboardThread(threading.Thread):
                 headers={
                     "Host": "welearn.sflep.com",
                     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
+                    "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+                    "Accept-Encoding": "gzip, deflate, br, zstd",
                     "Referer": f"https://welearn.sflep.com/Student/StudyCourse.aspx?cid={_global.cid}&classid={_global.classid}&sco={scoid}"
                 },
             )
@@ -917,6 +943,9 @@ class AwayFromKeyboardThread(threading.Thread):
                             headers={
                                 "Host": "welearn.sflep.com",
                                 "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
+                                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                                "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+                                "Accept-Encoding": "gzip, deflate, br, zstd",
                                 "Referer": f"https://welearn.sflep.com/student/course_info.aspx?cid={_global.cid}"
                             },
                         )
