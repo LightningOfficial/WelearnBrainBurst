@@ -387,7 +387,11 @@ def get_courses():
     try:
         url = f"https://welearn.sflep.com/ajax/authCourse.aspx?action=gmc&nocache={round(random.random(), 16)}"
         response = client.get(
-            url, headers={"Referer": "https://welearn.sflep.com/student/index.aspx"}
+            url, headers={
+                "Host": "welearn.sflep.com",
+                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
+                "Referer": "https://welearn.sflep.com/student/index.aspx"
+                }
         )
         log_message(f"获取课程列表: {response.text}", "APPDEBUG")
         courses: List[CourseInfo] = response.json()["clist"]
@@ -408,7 +412,11 @@ def get_lessons():
         url = f"https://welearn.sflep.com/student/course_info.aspx?cid={_global.cid}"
         response = client.get(
             url,
-            headers={"Referer": "https://welearn.sflep.com/student/course_info.aspx"},
+            headers={
+                "Host": "welearn.sflep.com",
+                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
+                "Referer": "https://welearn.sflep.com/student/course_info.aspx"
+                },
         )
         log_message(f"成功获取到返回：{response.text}", "APPDEBUG")
         _global.uid = re.search('"uid":(.*?),', response.text).group(1)
@@ -421,7 +429,11 @@ def get_lessons():
         response = client.get(
             url,
             params={"action": "courseunits", "cid": _global.cid, "uid": _global.uid},
-            headers={"Referer": "https://welearn.sflep.com/student/course_info.aspx"},
+            headers={
+                "Host": "welearn.sflep.com",
+                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
+                "Referer": "https://welearn.sflep.com/student/course_info.aspx"
+                },
         )
         log_message(f"获取课程单元列表: {response.text}", "APPDEBUG")
         lessons = response.json()["info"]
@@ -456,6 +468,8 @@ def get_sections():
         response = client.get(
             url,
             headers={
+                "Host": "welearn.sflep.com",
+                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
                 "Referer": f"https://welearn.sflep.com/student/course_info.aspx?cid={_global.cid}"
             },
         )
@@ -586,6 +600,8 @@ class BrainBurstThread(threading.Thread):
         try:
             state.task_status = "brain_burst"
             infoHeaders = {
+                "Host": "welearn.sflep.com",
+                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
                 "Referer": f"https://welearn.sflep.com/student/course_info.aspx?cid={_global.cid}",
             }
             # 重新计算总数
@@ -638,6 +654,8 @@ class BrainBurstThread(threading.Thread):
                                 "uid": _global.uid,
                             },
                             headers={
+                                "Host": "welearn.sflep.com",
+                                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
                                 "Referer": f"https://welearn.sflep.com/Student/StudyCourse.aspx?cid={_global.cid}&classid={_global.classid}&sco={id}"
                             },
                         )
@@ -652,6 +670,8 @@ class BrainBurstThread(threading.Thread):
                                 "isend": "False",
                             },
                             headers={
+                                "Host": "welearn.sflep.com",
+                                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
                                 "Referer": f"https://welearn.sflep.com/Student/StudyCourse.aspx?cid={_global.cid}&classid={_global.classid}&sco={id}"
                             },
                         )
@@ -688,6 +708,8 @@ class BrainBurstThread(threading.Thread):
                                     "trycount": "0",
                                 },
                                 headers={
+                                    "Host": "welearn.sflep.com",
+                                    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
                                     "Referer": f"https://welearn.sflep.com/Student/StudyCourse.aspx?cid={_global.cid}&classid={_global.classid}&sco={id}"
                                 },
                             )
@@ -768,6 +790,8 @@ class AwayFromKeyboardThread(threading.Thread):
                     "scoid": scoid,
                 },
                 headers={
+                    "Host": "welearn.sflep.com",
+                    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
                     "Referer": "https://welearn.sflep.com/student/StudyCourse.aspx"
                 },
             )
@@ -783,6 +807,8 @@ class AwayFromKeyboardThread(threading.Thread):
                         "scoid": scoid,
                     },
                     headers={
+                        "Host": "welearn.sflep.com",
+                        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
                         "Referer": "https://welearn.sflep.com/student/StudyCourse.aspx"
                     },
                 )
@@ -814,6 +840,8 @@ class AwayFromKeyboardThread(threading.Thread):
                     "total_time": total_time,
                 },
                 headers={
+                    "Host": "welearn.sflep.com",
+                    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
                     "Referer": "https://welearn.sflep.com/student/StudyCourse.aspx"
                 },
             )
@@ -833,6 +861,8 @@ class AwayFromKeyboardThread(threading.Thread):
                             "total_time": str(int(total_time)),
                         },
                         headers={
+                            "Host": "welearn.sflep.com",
+                            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
                             "Referer": "https://welearn.sflep.com/student/StudyCourse.aspx"
                         },
                     )
@@ -852,6 +882,8 @@ class AwayFromKeyboardThread(threading.Thread):
                     "trycount": "0",
                 },
                 headers={
+                    "Host": "welearn.sflep.com",
+                    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
                     "Referer": f"https://welearn.sflep.com/Student/StudyCourse.aspx?cid={_global.cid}&classid={_global.classid}&sco={scoid}"
                 },
             )
@@ -883,6 +915,8 @@ class AwayFromKeyboardThread(threading.Thread):
                             "GET",
                             f"https://welearn.sflep.com/ajax/StudyStat.aspx?action=scoLeaves&cid={_global.cid}&uid={_global.uid}&unitidx={unit_index}&classid={_global.classid}",
                             headers={
+                                "Host": "welearn.sflep.com",
+                                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:145.0) Gecko/20100101 Firefox/145.0",
                                 "Referer": f"https://welearn.sflep.com/student/course_info.aspx?cid={_global.cid}"
                             },
                         )
